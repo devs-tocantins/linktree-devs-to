@@ -1,0 +1,77 @@
+:root {
+  --bg: #f7f8fb;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --text: #111827;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg);
+  color: var(--text);
+  padding: 2rem;
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+}
+
+header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+p.lead {
+  margin: .35rem 0 0;
+  color: #374151;
+}
+
+main {
+  display: grid;
+  gap: 1rem;
+}
+
+.links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: .75rem;
+}
+
+.link-item a {
+  display: block;
+  padding: .85rem 1rem;
+  border-radius: .6rem;
+  text-decoration: none;
+  background: var(--card);
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+  border: 1px solid rgba(15,23,42,0.04);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.link-item a:focus {
+  outline: 3px solid rgba(37,99,235,0.18);
+}
+
+footer {
+  margin-top: 1rem;
+  text-align: center;
+  font-size: .85rem;
+  color: #6b7280;
+}
