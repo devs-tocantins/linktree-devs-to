@@ -4,6 +4,12 @@ const init = async () => {
 
   const theme = themeParam;
 
+  if (urlParams.get('theme') !== theme) {
+    urlParams.set('theme', theme);
+    const newRelativePathQuery = window.location.pathname + '?' + urlParams.toString();
+    window.history.replaceState(null, '', newRelativePathQuery);
+  }
+
   try {
     const dataResponse = await fetch('src/data/links.json');
     if (!dataResponse.ok) {
