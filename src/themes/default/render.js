@@ -62,7 +62,7 @@ export const renderTheme = (data, containerId) => {
     const header = document.createElement('header');
     const profileImage = document.createElement('img');
     const profileData = {
-        avatar: 'src/assets/logo.png',
+        avatar: 'src/assets/logo.webp',
         name: 'Devs Tocantins',
         bio: 'Comunidade de TI do estado do Tocantins'
     };
@@ -70,6 +70,9 @@ export const renderTheme = (data, containerId) => {
     profileImage.src = profileData.avatar;
     profileImage.alt = `Avatar de ${profileData.name}`;
     profileImage.className = 'avatar';
+    profileImage.width = 96;
+    profileImage.height = 96;
+    profileImage.fetchPriority = 'high';
 
     const profileName = document.createElement('h1');
     profileName.textContent = profileData.name;
