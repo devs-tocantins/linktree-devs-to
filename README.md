@@ -1,59 +1,44 @@
-# Links da Comunidade
+# Linktree - Desenvolvedores Tocantins 🌳
 
-Este repositório contém o código da nossa página de links centralizados, que serve como um ponto de acesso rápido para todos os canais importantes da comunidade Devs Tocantins. O projeto foi construído com HTML, CSS e JavaScript puros.
+Bem-vindo ao repositório oficial da página de links da comunidade **Desenvolvedores Tocantins**.
+Este projeto utiliza uma arquitetura simples e extensível de temas baseados em Vanilla JS, CSS e HTML5.
 
-O objetivo é manter uma página simples, rápida e fácil de manter. Sinta-se à vontade para contribuir!
+## 🚀 Como Funciona
 
-## 🚀 Deploy
+A estrutura do Linktree é guiada por uma fonte única de dados e um gerenciador de temas:
 
-Você pode acessar o projeto em produção através do seguinte link:
+- **Data Layer:** Todos os links e dados do perfil ficam no arquivo `src/data/links.json`.
+- **Core:** O arquivo raiz `index.html` carrega o `src/core/main.js`, que processa a URL e faz o requisitório dinâmico do tema selecionado.
+- **Themes:** Cada tema vive dentro de `src/themes/<nome_do_tema>`.
 
-- **[https://linktree-devs-to.vercel.app/](https://linktree-devs-to.vercel.app/)**
+Para alterar o tema carregado em tempo real, utilize o parâmetro `?theme=` na URL.
+Exemplo: `http://localhost:XXXX/?theme=default`
 
-## Adicionando novos links
+O tema `default` é aplicado automaticamente caso não seja enviado nenhum parâmetro.
 
-Para adicionar um novo link ao site, edite o arquivo [`links.json`](src/data/links.json) e insira um novo objeto dentro da lista, seguindo o formato abaixo:
+## 🛠️ Como Executar Localmente
 
-```json
-[
-  {
-    "title": "Repositório GitHub",
-    "url": "https://github.com/devs-tocantins"
-  },
-    ...
-  {
-    "title": "Título do Novo Link",
-    "url": "https://example.com"
-  }
-]
-```
+Como usamos EcmaScript Modules (`import()` dinâmicos) locais e a Fetch API para ler o JSON, o navegador **bloqueará** a execução caso você tente abrir o arquivo `index.html` diretamente do disco via `file://`. Você precisa rodar através de um servidor HTTP local.
 
-## ▶️ Rodando o projeto localmente
+1. Instale um servidor estático via npm se ainda não possuir:
+   ```bash
+   npm install -g serve
+   # ou
+   npm install -g live-server
+   ```
+2. Na raiz do projeto, rode:
+   ```bash
+   npx serve .
+   ```
+3. Acesse `http://localhost:3000` (ou a porta informada pelo servidor).
 
-Este projeto carrega os links a partir do arquivo [`links.json`](src/data/links.json) usando a função:
+## 🤝 Como Contribuir
 
-```javascript
-const response = await fetch('../data/links.json');
-``` 
+Ficamos felizes com o seu interesse em contribuir para a nossa comunidade! Você pode enviar novos links, corrigir bugs ou até criar seu próprio layout/tema para o nosso Linktree.
 
-Por causa dessa chamada com fetch, o navegador bloqueia o acesso ao arquivo quando você abre o index.html diretamente (via file://).
-👉 Para funcionar corretamente, é necessário rodar em um servidor local.
+Leia atentamente as diretrizes em nosso guia de contribuição antes de abrir um Pull Request:
+👉 [CONTRIBUTING.md](CONTRIBUTING.md)
 
-Com Python 3:
+## 📄 Licença
 
-```bash
-python3 -m http.server 3000
-```
-Depois acesse: http://localhost:3000
-
-
-Com Node.js (http-server):
-
-```bash
-npx http-server .
-```
-Depois acesse: http://localhost:8080
-
-#### Se usa VSCode, de preferência a Extensão Live Serve
-
-
+Este projeto é de código aberto sob a licença [MIT](LICENSE).
