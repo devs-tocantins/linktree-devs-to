@@ -6,11 +6,10 @@ const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'themes.json');
 
 try {
     const entries = fs.readdirSync(THEMES_DIR, { withFileTypes: true });
-    const themes = entries
-        .filter(dirent => dirent.isDirectory())
-        .map(dirent => dirent.name);
+    const themes = entries.filter(dirent => dirent.isDirectory()).map(dirent => dirent.name);
 
     fs.writeFileSync(OUTPUT_FILE, JSON.stringify(themes, null, 2));
+    // eslint-disable-next-line no-console
     console.log(`[Build] themes.json gerado com os temas: ${themes.join(', ')}`);
 } catch (err) {
     console.error(`Erro ao gerar a lista de temas:`, err);

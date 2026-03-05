@@ -18,6 +18,7 @@ Não altere a extensão nem apague o nome ou propriedades obrigatórias (ex: `ti
 ### 2. Criar ou Melhorar um Tema
 
 Os temas ficam restritos à sua respectiva pasta em `src/themes/<nome-do-tema>/`.
+
 - O tema deve possuir obrigatoriamente um CSS e um script principal (ex: `style.css` e `render.js`).
 - O script do seu tema deve exportar no seu module a função principal capaz de receber o payload `.json` (enviado pelo `Core`) para renderizar os dados em um container de ID pré definido pelo Core.
 - Não altere a lógica de parser de URL ou "casco base" dentro do diretório `src/core`. O Core cuida do esqueleto da aplicação, o tema cuida da "pele" e da sua própria montagem de exibição.
@@ -32,6 +33,7 @@ Acreditamos e praticamos **Clean Code**. Por conta disso, exigimos em nossa base
 ### 🤖 Integração Contínua (CI) e Code Quality
 
 Este projeto contém um ecossistema rigoroso de qualidade. Ao rodar `npm install`, você instalará localmente:
+
 - **Husky & lint-staged:** Antes de cada `git commit`, o código modificado será validadado e auto-formatado pelo Prettier.
 - **ESLint & Stylelint:** Impedem código JS problemático ou CSS aninhado indevidamente.
 - **Lighthouse CI & Sonar:** Todo Pull Request passa pelo Action no GitHub que exige Notas 90+ de Performance, Acessibilidade e SEO. NUNCA suba imagens pesadas ou scripts não-otimizados em seu tema.

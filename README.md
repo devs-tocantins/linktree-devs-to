@@ -21,14 +21,14 @@ O tema `default` é aplicado automaticamente caso não seja enviado nenhum parâ
 Como usamos EcmaScript Modules (`import()` dinâmicos) locais e a Fetch API para ler o JSON, o navegador **bloqueará** a execução caso você tente abrir o arquivo `index.html` diretamente do disco via `file://`. Você precisa rodar através de um servidor HTTP local. Além disso, utilizamos um script construtor de temas no lado do servidor.
 
 1. Instale as dependências do projeto (incluso linters e servidor locais):
-   ```bash
-   npm install
-   ```
+    ```bash
+    npm install
+    ```
 2. Inicie o projeto com o script padronizado, que vai compilar a lista de temas e abrir o servidor:
-   ```bash
-   npm start
-   ```
-   *(Caso não queira usar npm start, você pode rodar \`npm run build:themes\` seguido de \`npx serve .\`)*
+    ```bash
+    npm start
+    ```
+    _(Caso não queira usar npm start, você pode rodar \`npm run build:themes\` seguido de \`npx serve .\`)_
 3. Acesse `http://localhost:3000` (ou a porta informada pelo servidor).
 
 ## 🤝 Como Contribuir

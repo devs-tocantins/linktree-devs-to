@@ -52,9 +52,10 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:
+        -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     background-color: hsl(var(--background));
-    background-image: radial-gradient(hsl(var(--foreground) / 0.15) 1px, transparent 0);
+    background-image: radial-gradient(hsl(var(--foreground) / 15%) 1px, transparent 0);
     background-size: 32px 32px;
     color: hsl(var(--foreground));
     line-height: 1.5;
@@ -97,7 +98,7 @@ body {
     align-items: center;
     justify-content: center;
     transition: all 0.2s;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 
 .icon-btn:hover {
@@ -164,7 +165,7 @@ h1 {
     border-radius: var(--radius);
     font-weight: 500;
     transition: all 0.2s ease-in-out;
-    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
 }
 
 .link-card:hover {
@@ -187,6 +188,7 @@ h1 {
     flex-grow: 1;
     text-align: center;
     padding-right: 1.25rem;
+
     /* balances the icon space */
 }
 
@@ -214,7 +216,7 @@ h1 {
     --ring: 212.7 26.8% 83.9%;
 }
 
-@media (max-width: 640px) {
+@media (width <= 640px) {
     #app {
         padding: 2rem 1rem;
     }
