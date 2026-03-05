@@ -29,6 +29,13 @@ Acreditamos e praticamos **Clean Code**. Por conta disso, exigimos em nossa base
 1. **Zero Comentários no Código-Fonte:** Use a expressividade e bons nomes em variáveis, funções e arquivos em vez de usar `//`. O PR será recusado se contiver comentários supérfluos, temporários ou blocos comentados "para o futuro". O Git cuida da história, e o nome e tipagem das variáveis cuidam do contexto.
 2. **Semântica e Acessibilidade (a11y):** Novas criações de tema sempre devem garantir o uso apropriado das tags HTML de marcação (`nav`, `ul`, `li`, `main`, focos de Outline interativos - `:focus-visible`).
 
+### 🤖 Integração Contínua (CI) e Code Quality
+
+Este projeto contém um ecossistema rigoroso de qualidade. Ao rodar `npm install`, você instalará localmente:
+- **Husky & lint-staged:** Antes de cada `git commit`, o código modificado será validadado e auto-formatado pelo Prettier.
+- **ESLint & Stylelint:** Impedem código JS problemático ou CSS aninhado indevidamente.
+- **Lighthouse CI & Sonar:** Todo Pull Request passa pelo Action no GitHub que exige Notas 90+ de Performance, Acessibilidade e SEO. NUNCA suba imagens pesadas ou scripts não-otimizados em seu tema.
+
 ### 📈 Padrões de Commits
 
 Exigimos **Mensagens de Commits em Português** orientadas pelo [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
