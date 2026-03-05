@@ -11,11 +11,22 @@ const init = async () => {
   }
 
   try {
-    const dataResponse = await fetch('src/data/links.json');
+    const [dataResponse, themesResponse] = await Promise.all([
+      fetch('src/data/links.json'),
+      fetch('src/data/themes.json').catch(() => null)
+    ]);
+
     if (!dataResponse.ok) {
       throw new Error(`Failed to load data: ${dataResponse.statusText}`);
     }
-    const data = await dataResponse.json();
+    const rawData = await dataResponse.json();
+
+    // Inject themes safely into data
+    const availableThemes = themesResponse && themesResponse.ok ? await themesResponse.json() : ['default'];
+    const data = {
+      links: Array.isArray(rawData) ? rawData : rawData.links || [],
+      themes: availableThemes
+    };
 
     const linkEl = document.createElement('link');
     linkEl.rel = 'stylesheet';

@@ -36,9 +36,12 @@ export const renderTheme = (data, containerId) => {
     randomThemeBtn.setAttribute('aria-label', 'Tema Aleatório');
     randomThemeBtn.textContent = 'Tema Aleatório';
     randomThemeBtn.addEventListener('click', () => {
-        const urlOptions = ['default', 'ocean', 'cyberpunk', 'forest'];
+        const urlOptions = data.themes || ['default'];
         const current = new URLSearchParams(window.location.search).get('theme') || 'default';
         const urlFilt = urlOptions.filter(t => t !== current);
+        if (urlFilt.length === 0) {
+            return;
+        }
         const rand = urlFilt[Math.floor(Math.random() * urlFilt.length)];
         window.location.href = `?theme=${rand}`;
     });
