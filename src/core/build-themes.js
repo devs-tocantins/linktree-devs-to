@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const THEMES_DIR = path.join(__dirname, 'src', 'themes');
-const OUTPUT_FILE = path.join(__dirname, 'src', 'data', 'themes.json');
+const THEMES_DIR = path.join(__dirname, '..', 'themes');
+const OUTPUT_FILE = path.join(__dirname, '..', 'data', 'themes.json');
 
 try {
     const entries = fs.readdirSync(THEMES_DIR, { withFileTypes: true });

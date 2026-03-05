@@ -4,7 +4,7 @@
   "description": "Bem-vindo ao repositório oficial da página de links da comunidade **Desenvolvedores Tocantins**.\r Este projeto utiliza uma arquitetura simples e extensível de temas baseados em Vanilla JS, CSS e HTML5.",
   "main": "index.js",
   "scripts": {
-    "build:themes": "node build-themes.js",
+    "build:themes": "node src/core/build-themes.js",
     "prestart": "npm run build:themes",
     "prebuild": "npm run build:themes",
     "test": "echo \"Error: no test specified\" && exit 1"
