@@ -7,15 +7,21 @@ export const renderTheme = (data, containerId) => {
 
     const header = document.createElement('header');
     const profileImage = document.createElement('img');
-    profileImage.src = data.profile.avatar;
-    profileImage.alt = `Avatar de ${data.profile.name}`;
+    const profileData = {
+        avatar: 'https://avatars.githubusercontent.com/u/108502844?s=200&v=4',
+        name: 'Devs Tocantins',
+        bio: 'Comunidade de desenvolvedores do estado do Tocantins'
+    };
+
+    profileImage.src = profileData.avatar;
+    profileImage.alt = `Avatar de ${profileData.name}`;
     profileImage.className = 'avatar';
 
     const profileName = document.createElement('h1');
-    profileName.textContent = data.profile.name;
+    profileName.textContent = profileData.name;
 
     const profileBio = document.createElement('p');
-    profileBio.textContent = data.profile.bio;
+    profileBio.textContent = profileData.bio;
     profileBio.className = 'bio';
 
     header.appendChild(profileImage);
@@ -29,7 +35,9 @@ export const renderTheme = (data, containerId) => {
     const linksList = document.createElement('ul');
     linksList.className = 'links-list';
 
-    data.links.forEach(link => {
+    const linksArray = Array.isArray(data) ? data : data.links || [];
+
+    linksArray.forEach(link => {
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = link.url;
