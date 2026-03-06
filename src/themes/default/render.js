@@ -51,7 +51,10 @@ export const renderTheme = (data, containerId) => {
         if (urlFilt.length === 0) {
             return;
         }
-        const rand = urlFilt[Math.floor(Math.random() * urlFilt.length)];
+        const randomBuffer = new Uint32Array(1);
+        crypto.getRandomValues(randomBuffer);
+        const randIndex = randomBuffer[0] % urlFilt.length;
+        const rand = urlFilt[randIndex];
         window.location.href = `?theme=${rand}`;
     });
 
