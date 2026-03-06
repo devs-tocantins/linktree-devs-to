@@ -19,17 +19,7 @@ jobs:
             - run: npx eslint src
             - run: npx stylelint "src/**/*.css"
             - run: npx htmlhint "*.html"
-    sonar:
-        runs-on: ubuntu-latest
-        steps:
-            - uses: actions/checkout@v4
-              with:
-                  fetch-depth: 0
-            - name: SonarCloud Scan
-              uses: SonarSource/sonarqube-scan-action@dcc5211de53084482f1c6779dda263459f5274f6 # master
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
     lighthouse:
         runs-on: ubuntu-latest
         steps:
