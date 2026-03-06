@@ -36,9 +36,29 @@ Este projeto contém um ecossistema rigoroso de qualidade. Ao rodar `npm install
 
 - **Husky & lint-staged:** Antes de cada `git commit`, o código modificado será validadado e auto-formatado pelo Prettier.
 - **ESLint & Stylelint:** Impedem código JS problemático ou CSS aninhado indevidamente.
-- **Lighthouse CI & Sonar:** Todo Pull Request passa pelo Action no GitHub que exige Notas 90+ de Performance, Acessibilidade e SEO. NUNCA suba imagens pesadas ou scripts não-otimizados em seu tema.
+- **Lighthouse CI & SonarCloud:** Todo Pull Request passa pelo Action no GitHub que exige Notas 90+ de Performance, Acessibilidade e SEO. NUNCA suba imagens pesadas ou scripts não-otimizados em seu tema.
 
-### 📈 Padrões de Commits
+#### 💡 Como Rodar e Corrigir as Validações Localmente
+
+Para evitar que seu Pull Request seja bloqueado pelo CI no GitHub, recomendamos testar tudo localmente antes do push:
+
+**1. Formatadores e Linters (Prettier, ESLint, Stylelint, HTMLHint):**
+
+- **Rodar a verificação:** `npm run lint` (ou os scripts individuais se definidos).
+- **Resolver problemas comuns:** Se o Prettier acusar falha de formatação, rode `npx prettier --write .`. Para corrigir automaticamente problemas de CSS, rode `npx stylelint "src/**/*.css" --fix`. Avisos no console de `build-themes.js` devem ser silenciados com `// eslint-disable-next-line no-console` se intencionais.
+
+**2. Lighthouse CI (Performance, SEO, Acessibilidade):**
+
+- **Como rodar:** Inicie o build de temas (`npm run build:themes`), deixe um servidor estático rodando em background (ex: `npx serve -p 3000 &`) e então execute `npx lhci autorun`.
+- **Problemas comuns:**
+    - _`image-delivery-insight` / `uses-responsive-images`:_ Assegure que as imagens inseridas (como logos e avatares) sejam leves (formato WebP ao invés de PNG/JPG) e tenham `width` e `height` definidos no HTML/JS para evitar _Layout Shifts_.
+    - _`network-dependency-tree-insight` / `render-blocking-resources`:_ Faça preload no `<head>` das fontes, scripts e arquivos vitais (ex: `<link rel="preload" href="..." as="image" fetchpriority="high">`). Não injete `<link rel="stylesheet">` de temas globalmente que bloqueiem a primeira renderização (carregue o CSS do tema de forma otimizada).
+
+**3. SonarCloud (Qualidade e Segurança de Código):**
+Para testar o scan local do Sonar, você precisa do [SonarScanner CLI](https://docs.sonarsource.com/sonarqube/latest/analyzing-source-code/scanners/sonarscanner/).
+
+- O arquivo de configuração `sonar-project.properties` já exite na raiz definindo propriedades-chave obrigatórias (como `sonar.projectKey` e `sonar.organization`).
+- Se houver alertas sobre código assíncrono mal tipado ou condicionais vazias no JS, procure corrigir as lógicas sujas indicadas no dashboard ou verifique a formatação do arquivo `properties` da branch.
 
 Exigimos **Mensagens de Commits em Português** orientadas pelo [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
 Não aceite que "um commit diário" basta. Goste de fatiar o seu problema e commitá-lo à medida em que ele é resolvido. O Histórico linear é seu amigo.
