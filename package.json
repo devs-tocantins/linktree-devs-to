@@ -1,0 +1,38 @@
+{
+    "name": "linktree-devs-to",
+    "version": "1.0.0",
+    "description": "Bem-vindo ao repositório oficial da página de links da comunidade **Desenvolvedores Tocantins**.\r Este projeto utiliza uma arquitetura simples e extensível de temas baseados em Vanilla JS, CSS e HTML5.",
+    "main": "index.js",
+    "scripts": {
+        "build:themes": "node src/core/build-themes.js",
+        "prestart": "npm run build:themes",
+        "prebuild": "npm run build:themes",
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "prepare": "husky"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/devs-tocantins/linktree-devs-to.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "type": "commonjs",
+    "bugs": {
+        "url": "https://github.com/devs-tocantins/linktree-devs-to/issues"
+    },
+    "homepage": "https://github.com/devs-tocantins/linktree-devs-to#readme",
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@lhci/cli": "^0.15.1",
+        "eslint": "^10.0.2",
+        "eslint-config-prettier": "^10.1.8",
+        "globals": "^17.4.0",
+        "htmlhint": "^1.9.2",
+        "husky": "^9.1.7",
+        "lint-staged": "^16.3.2",
+        "prettier": "^3.8.1",
+        "stylelint": "^17.4.0",
+        "stylelint-config-standard": "^40.0.0"
+    }
+}

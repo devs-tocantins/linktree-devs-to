@@ -10,7 +10,7 @@ Por favor, descreva **o que este Pull Request faz** e **qual problema resolve**.
 - [ ] Nova funcionalidade
 - [ ] Documentação
 - [ ] Refatoração
-- [ ] Outro: _________
+- [ ] Outro: \***\*\_\*\***
 
 ---
 
