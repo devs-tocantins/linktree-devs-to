@@ -1,0 +1,229 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: #000;
+    color: #fff;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+.lv-top-bar {
+    /* stylelint-disable-next-line declaration-no-important */
+    display: none !important;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.lv-scene {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 700px;
+    height: 10px;
+    perspective: 5em;
+    margin-top: 5vh;
+    z-index: 2;
+}
+
+@media (width >=640px) {
+    .lv-scene {
+        perspective: 5em;
+    }
+}
+
+.lv-carousel-item {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -35px;
+    margin-top: -35px;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #5ab0ff;
+    border-radius: 12px;
+    background: rgb(0 0 0 / 80%);
+    box-shadow:
+        0 0 10px #5ab0ff,
+        inset 0 0 10px #5ab0ff;
+    color: #fff;
+    text-decoration: none;
+    transition:
+        box-shadow 0.3s,
+        border-color 0.3s;
+    pointer-events: none;
+}
+
+.lv-carousel-item svg {
+    width: 32px;
+    height: 32px;
+    stroke: #5ab0ff;
+    filter: drop-shadow(0 0 5px #5ab0ff);
+}
+
+.lv-carousel-item.lv-active {
+    box-shadow:
+        0 0 20px #fff,
+        inset 0 0 15px #fff;
+    border-color: #fff;
+    pointer-events: auto;
+}
+
+.lv-carousel-item.lv-active svg {
+    stroke: #fff;
+    filter: drop-shadow(0 0 10px #fff);
+}
+
+.lv-space-bg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -10;
+    pointer-events: none;
+}
+
+.lv-active-title-container {
+    position: relative;
+    z-index: 1;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.lv-active-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    text-shadow:
+        0 0 10px #5ab0ff,
+        0 0 20px #5ab0ff;
+    opacity: 0;
+    transition: opacity 0.4s ease-out;
+    text-align: center;
+    text-decoration: none;
+}
+
+.lv-bg-image {
+    position: absolute;
+    z-index: 100;
+    pointer-events: none;
+    width: 100%;
+    max-width: 550px;
+    margin-top: 200px;
+    object-fit: contain;
+    filter: drop-shadow(0 0 20px rgb(90 176 255 / 40%));
+}
+
+.lv-controls {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1000;
+    pointer-events: none;
+    padding: 0 5vw;
+}
+
+.lv-control-btn {
+    background: transparent;
+    border: none;
+    color: rgb(255 255 255 / 30%);
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    border-radius: 0;
+    cursor: pointer;
+    pointer-events: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    transition: all 0.3s;
+}
+
+.lv-control-btn:hover {
+    background: transparent;
+    color: rgb(255 255 255 / 60%);
+    box-shadow: none;
+}
+
+@media (width >=640px) {
+    .lv-control-btn {
+        color: rgb(255 255 255 / 15%);
+    }
+
+    .lv-control-btn:hover {
+        color: rgb(255 255 255 / 40%);
+    }
+}
+
+.lv-footer-credits {
+    position: absolute;
+    bottom: 20px;
+    font-size: 0.75rem;
+    color: rgb(255 255 255 / 60%);
+    text-align: center;
+    z-index: 1000;
+}
+
+.lv-footer-credits a {
+    color: #5ab0ff;
+    text-decoration: none;
+}
+
+.lv-footer-credits a:hover {
+    text-decoration: underline;
+    color: #fff;
+}
+
+.lv-random-theme-btn {
+    position: absolute;
+    top: 3rem;
+    left: max(1rem, calc(50vw - 340px));
+    background: transparent;
+    color: rgb(255 255 255 / 60%);
+    border: 1px solid rgb(255 255 255 / 30%);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.lv-random-theme-btn:hover {
+    color: #fff;
+    border-color: #5ab0ff;
+    box-shadow: 0 0 10px rgb(90 176 255 / 50%);
+}
