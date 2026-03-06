@@ -67,7 +67,7 @@ export const renderTheme = (data, containerId) => {
     const profileData = {
         avatar: 'src/assets/logo.webp',
         name: 'Devs Tocantins',
-        bio: 'Comunidade de TI do estado do Tocantins'
+        bio: 'Comunidade de TI do Estado do Tocantins'
     };
 
     profileImage.src = profileData.avatar;
