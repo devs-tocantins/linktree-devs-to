@@ -37,7 +37,22 @@ export const renderTheme = (data, containerId) => {
     themeToggleBtn.setAttribute('aria-label', 'Alternar modo escuro');
     themeToggleBtn.innerHTML = createIconSvg('M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z');
     themeToggleBtn.addEventListener('click', () => {
-        document.documentElement.classList.toggle('dark');
+        const root = document.documentElement;
+        if (root.classList.contains('light')) {
+            root.classList.remove('light');
+            root.classList.add('dark');
+        } else if (root.classList.contains('dark')) {
+            root.classList.remove('dark');
+            root.classList.add('light');
+        } else {
+            const isSystemDark =
+                window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (isSystemDark) {
+                root.classList.add('light');
+            } else {
+                root.classList.add('dark');
+            }
+        }
     });
 
     const randomThemeBtn = document.createElement('button');
